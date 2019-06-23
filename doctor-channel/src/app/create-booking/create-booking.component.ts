@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-create-booking',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateBookingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private httpService: HttpClient) { }
 
   ngOnInit() {
+    let ob = this.httpService.get('http://123.231.92.110:8093/api/v1/gflock-online-order-manage-system/find-all-delivery-company');
+    ob.subscribe(res => {
+      console.log(res);
+    });
   }
 
 }
