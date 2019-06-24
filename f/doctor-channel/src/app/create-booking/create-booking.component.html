@@ -1,0 +1,74 @@
+<div class="row justify-content-center">
+  <div class="col-9">
+
+    <section class="container-doctors">
+      <h3 class="ui-component-note">Asiri Central Hospital - Norris Canal Road-Colombo 10</h3>
+
+      <div class="ui-profile">
+        <div class="doctor-profile">
+          <div class="doctor-photo"><img src="https://image.freepik.com/free-vector/doctor-character-background_1270-84.jpg"></div>
+          <div class="doctor-quick-details">
+            <ul>
+              <li class="doctor-name"><a href="#/">Dr.{{doctor.name}}</a>
+                <span class="doctor-qualifications"></span></li>
+              <li class="doctor-title">
+                {{doctor.description}}
+              </li>
+              <li>Special Notes: <span class="text-danger">{{doctor.qualification}}</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+        <div class="panel">
+          <div class="panel-heading" role="tab" id="heading-9">
+            <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse-9"
+               aria-expanded="false" aria-controls="collapse-9">
+              <h4 class="panel-title">
+                <i class="fa fa-stethoscope fa-fw"></i> ENT Surgeon <span class="pull-right"><i
+                class="fa fa-chevron-down fa-fw"></i></span><br>
+                <small>{{doctorSessionList.length}} Sessions</small>
+              </h4>
+            </a>
+          </div>
+          <div id="collapse-9" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading-9">
+            <div class="ui-profile-sessions ui-profile-sessions-list">
+              <ul *ngFor="let doctorSession of doctorSessionList">
+                <li>
+                  <div class="ui-component ui-component-primary ui-component-sessions ui-component-channel" data-link="//frame.doc.lk/asiri/book/2133826">
+                    <div class="ui-component-content" data-link="//frame.doc.lk/asiri/book/2133826">
+                      <div class="session-quick-details">
+                        <ul>
+                          <li class="session-date">{{doctorSession.date}}</li>
+                          <li class="session-time">{{doctorSession.startTime}} - {{doctorSession.endTime}}</li>
+                        </ul>
+                      </div>
+                      <div class="session-counter ui-action" data-original-title="" title="">
+                        <ul>
+                          <li class="session-active-title">Active Appointments</li>
+                          <li class="session-active-count">
+                            {{doctorSession.availaility}}
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="ui-component-options">
+                      <ul>
+                        <li>
+                          <a href="//frame.doc.lk/asiri/book/2133826" class="btn btn-dialog"><i
+                            class="fa fa-bookmark-o fa-fw"></i> Book</a>
+                        </li>
+                        <li class="session-status">Available</li>
+                      </ul>
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
