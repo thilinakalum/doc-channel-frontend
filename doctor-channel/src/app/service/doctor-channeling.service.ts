@@ -32,4 +32,8 @@ export class DoctorChannelingService {
     console.log(url);
     return this.http.get(url);
   }
+
+  findSessionDetails(id: number) {
+    return this.http.get(AppSettings.API_ENDPOINT + '/api/doctor-channeling/find-session-details/' + id);
+  }
 }

@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {DoctorChannelingService} from '../service/doctor-channeling.service';
 import {DoctorSession} from '../dto/doctor-session';
 import {Doctor} from '../dto/doctor';
@@ -14,9 +14,14 @@ export class CreateBookingComponent implements OnInit {
   private doctorSessionList: DoctorSession [] = [];
   private doctor: Doctor;
 
-  constructor(private route: ActivatedRoute, private doctorChannelingService: DoctorChannelingService) {
+  constructor(private route: ActivatedRoute,
+              private doctorChannelingService: DoctorChannelingService,
+              private router: Router) {
     this.doctor = new Doctor();
     this.doctorSessionList = [];
+  }
+
+  ngOnInit(): void {
     this.doctorChannelingService.findDoctorSessionByDoctorAnd(this.route.snapshot.params.doctor, this.route.snapshot.params.date)
       .subscribe((data: DoctorSession[]) => {
           this.doctorSessionList = data;
@@ -25,11 +30,9 @@ export class CreateBookingComponent implements OnInit {
           this.doctorSessionList = [];
         }
       );
-
   }
 
-  ngOnInit(): void {
+  confirmbooking(sessionDetails) {
+    this.router.navigate(['confirm-booking', sessionDetails.id]);
   }
-
-
 }

@@ -29,6 +29,11 @@ public class DoctorChannelingController {
         return doctorChannelingService.findAllDoctorCategory();
     }
 
+    @GetMapping("/find-session-details/{id}")
+    public List<DoctorCategory> findSessionDetails(@PathVariable("id") Integer id)  {
+        return doctorChannelingService.findSessionDetails(id);
+    }
+
     @GetMapping(value = {
             "/find-doctor-session-by-doctor-and-date",
             "/find-doctor-session-by-doctor-and-date/{doctor}",
