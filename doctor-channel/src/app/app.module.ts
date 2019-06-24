@@ -11,13 +11,15 @@ import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
+import { ConfirmBookingComponent } from './confirm-booking/confirm-booking.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CreateBookingComponent,
     HomeComponent,
-    FilterPipe
+    FilterPipe,
+    ConfirmBookingComponent
   ],
   imports: [
     BrowserModule,

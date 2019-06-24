@@ -1,0 +1,207 @@
+<div class="row justify-content-center">
+  <div class="col-9">
+    <section class="container-sessions">
+      <h3 class="ui-component-note">Asiri Central Hospital - Norris Canal Road-Colombo 10</h3>
+      <div class="ui-profile">
+        <div class="doctor-profile">
+          <div class="doctor-photo"><img src="https://image.freepik.com/free-vector/doctor-character-background_1270-84.jpg"></div>
+          <div class="doctor-quick-details">
+            <ul>
+              <li class="doctor-name"><a href="#/">Dr. MOHAN JAYATHILAKE</a> <span class="doctor-qualifications"></span>
+              </li>
+
+              <li class="doctor-title">
+                Cardiologist
+              </li>
+              <li>Special Notes: <span class="text-danger">please  charge  normal charges  for Maldivian  patients as  per Dr.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="ui-profile-sessions">
+        <ul>
+          <li>
+            <div class="ui-component ui-component-primary ui-component-sessions">
+
+              <div class="ui-component-content">
+                <div class="session-quick-details">
+                  <ul>
+                    <li class="session-date">June 28, 2019</li>
+                    <li class="session-time">Fri 10:30 am</li>
+                  </ul>
+                </div>
+                <div class="session-counter ui-action" data-original-title="" title="">
+                  <ul>
+                    <li class="session-active-title">Patient No.</li>
+                    <li class="session-active-count">
+                      02
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="ui-component-options">
+                <ul>
+                  <li>
+                    <a href="#" class="ui-action" data-toggle="tooltip" data-placement="right" title=""
+                       data-original-title="Next Appointment Time">10:35 AM</a>
+                  </li>
+                  <li class="session-status">Available</li>
+                </ul>
+              </div>
+              <div class="ui-component-content pending-time timer-div" style="">
+                <ul>
+                  COMPLETE WITHIN
+                  <b id="timer-change">
+                    <div class="timer-quick" data-seconds-left="299">
+                      <div class="jst-hours"></div>
+                      <div class="jst-minutes">04:</div>
+                      <div class="jst-seconds">07</div>
+                      <div class="jst-clearDiv"></div>
+                    </div>
+                  </b>
+
+                </ul>
+              </div>
+            </div>
+          </li>
+
+        </ul>
+      </div>
+
+      <div class="ui-profile-content">
+        <form method="POST" action="//frame.doc.lk:8090/asiri/appointment/2187871/store" accept-charset="UTF-8"
+              class="form-horizontal" role="form" id="store-form"><input name="_token" type="hidden"
+                                                                         value="FiCIArxpgJrkTEZAT3UNe04OSK6RRCFVQvM7r3rp">
+
+          <div class="form-group " id="book-name-div">
+            <label for="name" class="col-lg-2 control-label">Patient's Name</label>
+            <div class="col-lg-8">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-user text-danger"></i></span>
+                <select id="book-title" class="form-control" name="title">
+                  <option value="1">Mr.</option>
+                  <option value="2">Mrs.</option>
+                  <option value="3">Mast.</option>
+                  <option value="4">Miss</option>
+                  <option value="5">Dr.</option>
+                  <option value="6">Dr (Ms.)</option>
+                  <option value="7">Dr (Mrs.)</option>
+                  <option value="8">Prof.</option>
+                  <option value="9">Prof (Ms.)</option>
+                  <option value="10">Prof (Mrs.)</option>
+                  <option value="11">Rev.</option>
+                  <option value="12">Baby</option>
+                  <option value="13">Sis.</option>
+                  <option value="14">Ms.</option>
+                  <option value="17">Hon.</option>
+                </select>
+                <span class="input-group-addon"></span>
+                <input id="book-name" class="form-control" placeholder="Name - Required" name="name" type="text"
+                       value="">
+              </div>
+
+              <span class="help-block" id="name-validation"></span>
+            </div>
+          </div>
+
+          <div class="form-group " id="book-phone-div">
+            <label for="phone" class="col-lg-2 control-label">Phone</label>
+            <div class="col-lg-8">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-phone text-danger"></i></span>
+                <input id="book-phone" class="form-control" placeholder="Phone - Required" maxlength="10" name="phone"
+                       type="text" value="">
+              </div>
+
+              <span class="help-block" id="phone-validation"></span>
+            </div>
+          </div>
+
+          <div class="form-group " id="book-nic-div">
+            <label for="nic" class="col-lg-2 control-label">NIC</label>
+            <div class="col-lg-8">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-certificate text-warning"></i></span>
+                <input id="book-nic" class="form-control" placeholder="NIC  - Required" name="nic" type="text" value="">
+              </div>
+
+              <span class="help-block" id="nic-validation"></span>
+            </div>
+          </div>
+
+          <div class="form-group " id="book-passport-div">
+            <label for="passport" class="col-lg-2 control-label">Passport</label>
+            <div class="col-lg-8">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-globe text-warning"></i></span>
+                <input id="book-passport" class="form-control" placeholder="Passport - Required if no NIC"
+                       name="passport"
+                       type="text" value="">
+              </div>
+
+              <span class="help-block" id="passport-validation"></span>
+            </div>
+          </div>
+
+          <div class="form-group " id="book-email-div">
+            <label for="email" class="col-lg-2 control-label">E-mail</label>
+            <div class="col-lg-8">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                <input id="book-email" class="form-control" placeholder="E-Mail - Optional" name="email" type="text"
+                       value="">
+              </div>
+
+              <span class="help-block" id="email-validation"></span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="running-number" class="col-lg-2 control-label">Ongoing Number</label>
+            <div class="col-lg-8">
+              <div class="radio" style="padding-top: 5px;">
+                <label>
+                  <input checked="checked" name="running-number" type="radio" value="1"> Yes &nbsp;
+                </label>
+                <label>
+                  <input name="running-number" type="radio" value="0"> No
+                </label>
+                &nbsp;
+                <a id="running-popover" style="color: #555;" href="#/" class="ui-action-popover" data-container="body"
+                   data-toggle="popover" data-trigger="focus" data-placement="top"
+                   data-title="Ongoing Appointment Number <a class='pull-right' id='running-popover-close' href='#/'><span></span></a>"
+                   data-content="Ongoing Appointment Number is a value added feature to Doc990 users which enables to check the ongoing appointment number of a started session up to 10 times via &quot;My Bookings&quot; of Doc.lk or Doc990 mobile app."
+                   tabindex="-1" data-original-title="" title=""><i class="fa fa-question-circle"></i></a>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group term-con">
+            <label class="col-lg-2 control-label"></label>
+            <div class="col-lg-8">
+              <div class="input-group" style="border-bottom: 0px;">
+                By clicking "Continue", I agree to the <a href="#" data-toggle="modal" data-target="#terms">Terms &amp;
+                Conditions</a> in use for Additional Service
+              </div>
+            </div>
+          </div>
+
+          <input name="timer_value" type="hidden" value="1561389969|1748">
+
+          <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-dialog" id="continue"><i class="fa fa-check-square-o fa-fw"></i>
+                Continue
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </section>
+  </div>
+</div>
