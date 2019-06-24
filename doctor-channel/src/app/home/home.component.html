@@ -40,48 +40,41 @@
   <div class="row justify-content-end">
     <div class="col-md-3 search-box">
       <div class="make-appointment">
-        <h2>Find a Doctor. Book an Appointment. Pay easy.</h2>
-
-
-
-
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-md"></i></span>
-            <!-- <span class="input-group"></span>-->
+        <form #f="ngForm">
+          <h2>Find a Doctor. Book an Appointment. Pay easy.</h2>
+          <div class="input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-user-md"></i></span>
+            </div>
+            <select class="custom-select" (change)="changeDoctor($event)" [(ngModel)]="searchDoctor.doctor" name="doctor">
+              <option value="">Doctor</option>
+              <option *ngFor="let doctor of doctorList" [ngValue]="doctor">{{doctor.name}}</option>
+            </select>
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon2">?</span>
+            </div>
           </div>
-          <input type="text" class="form-control" placeholder="Doctor Name">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon2">?</span>
+          <div class="input-group" style="margin-top: 10px">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon4"><i class="fa fa-plus-square"></i></span>
+            </div>
+            <select class="custom-select" (change)="changeDoctorCategory($event)" name="doctorCategory" [(ngModel)]="searchDoctor.doctorCategory">
+              <option value="" disabled>Any Specialization</option>
+              <option *ngFor="let doctorCategory of doctorCategoryList" [ngValue]="doctorCategory">{{doctorCategory.name}}</option>
+            </select>
           </div>
-        </div>
-        <div class="input-group"  style="margin-top: 10px">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon3"><i class="fa fa-h-square"></i></span>
-            <!-- <span class="input-group"></span>-->
-          </div>
-          <input type="text" class="form-control" placeholder="Select Hospital">
-        </div>
 
-        <div class="input-group"  style="margin-top: 10px">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon4"><i class="fa fa-plus-square"></i></span>
-            <!-- <span class="input-group"></span>-->
+          <div class="input-group" style="margin-top: 10px">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon5"><i class="fa fa-calendar-minus-o"></i></span>
+            </div>
+            <input type="date" class="form-control" name="date" [(ngModel)]="searchDoctor.date">
           </div>
-          <input type="text" class="form-control" placeholder="Any Specialization">
-        </div>
 
-        <div class="input-group"  style="margin-top: 10px">
-          <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon5"><i class="fa fa-calendar-minus-o"></i></span>
-            <!-- <span class="input-group"></span>-->
-          </div>
-          <input type="date" class="form-control">
-        </div>
-
-        <button type="button" (click)="search()" class="col-12 btn btn-danger" style="margin-top: 10px">
-          <i class="fa fa-search"></i> Search
-        </button>
+          <button type="button" (click)="search()" class="col-12 btn btn-danger" style="margin-top: 10px">
+            <i class="fa fa-search"></i> Search
+          </button>
+        </form>
       </div>
     </div>
   </div>

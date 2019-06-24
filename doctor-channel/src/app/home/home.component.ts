@@ -1,5 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
+import {DoctorChannelingService} from '../service/doctor-channeling.service';
+import {Doctor} from '../dto/doctor';
+import {Observable} from 'rxjs';
+import {SearchDoctor} from '../dto/search-doctor';
+import {DoctorCategory} from '../dto/doctor-category';
 
 @Component({
   selector: 'app-home',
@@ -8,12 +13,53 @@ import {Router} from '@angular/router';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  doctorList: Doctor[] = [];
+  doctorCategoryList: DoctorCategory [] = [];
+  searchDoctor: SearchDoctor;
 
-  ngOnInit() {
+  constructor(private router: Router,
+              private doctorChannelingService: DoctorChannelingService) {
+    this.searchDoctor = new SearchDoctor();
   }
 
+  ngOnInit() {
+    this.formLoadFillData();
+  }
+
+  formLoadFillData() {
+    this.doctorList = [];
+    this.doctorChannelingService.findAllDoctors()
+      .subscribe((data: Doctor[]) => {
+        this.doctorList = data;
+      }, (e) => {
+        console.log(e);
+        this.doctorList = [];
+      });
+
+    this.doctorCategoryList = [];
+    this.doctorChannelingService.findAllDoctorCategorys()
+      .subscribe((data: DoctorCategory[]) => {
+          this.doctorCategoryList = data;
+        }, (e) => {
+          this.doctorCategoryList = [];
+        }
+      );
+  }
+
+  changeDoctor(e) {
+    this.searchDoctor.doctorCategory = e.target.value;
+  }
+
+  changeDoctorCategory(e) {
+    console.log(e.target.value);
+  }
+
+
   search() {
-    this.router.navigate(['create-booking']);
+    if (this.searchDoctor.doctor) {
+      this.router.navigate(['create-booking', this.searchDoctor.doctor.id]);
+    }
+
+    this.router.navigate(['create-booking', this.searchDoctor.doctor.id, this.searchDoctor.date]);
   }
 }

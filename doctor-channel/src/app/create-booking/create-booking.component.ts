@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {DoctorChannelingService} from '../service/doctor-channeling.service';
+import {DoctorSession} from '../dto/doctor-session';
+import {Doctor} from '../dto/doctor';
 
 @Component({
   selector: 'app-create-booking',
@@ -8,13 +11,25 @@ import {HttpClient} from '@angular/common/http';
 })
 export class CreateBookingComponent implements OnInit {
 
-  constructor(private httpService: HttpClient) { }
+  private doctorSessionList: DoctorSession [] = [];
+  private doctor: Doctor;
 
-  ngOnInit() {
-    let ob = this.httpService.get('http://123.231.92.110:8093/api/v1/gflock-online-order-manage-system/find-all-delivery-company');
-    ob.subscribe(res => {
-      console.log(res);
-    });
+  constructor(private route: ActivatedRoute, private doctorChannelingService: DoctorChannelingService) {
+    this.doctor = new Doctor();
+    this.doctorSessionList = [];
+    this.doctorChannelingService.findDoctorSessionByDoctorAnd(this.route.snapshot.params.doctor, this.route.snapshot.params.date)
+      .subscribe((data: DoctorSession[]) => {
+          this.doctorSessionList = data;
+          this.doctor = this.doctorSessionList[0].fkDoctor;
+        }, (e) => {
+          this.doctorSessionList = [];
+        }
+      );
+
   }
+
+  ngOnInit(): void {
+  }
+
 
 }
