@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {DoctorChannelingService} from '../service/doctor-channeling.service';
+import {DoctorSession} from '../dto/doctor-session';
+import {Doctor} from '../dto/doctor';
 
 @Component({
   selector: 'app-create-booking',
@@ -7,9 +11,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateBookingComponent implements OnInit {
 
-  constructor() { }
+  private doctorSessionList: DoctorSession [] = [];
+  private doctor: Doctor;
 
-  ngOnInit() {
+  constructor(private route: ActivatedRoute, private doctorChannelingService: DoctorChannelingService) {
+    this.doctor = new Doctor();
+    this.doctorSessionList = [];
+    this.doctorChannelingService.findDoctorSessionByDoctorAnd(this.route.snapshot.params.doctor, this.route.snapshot.params.date)
+      .subscribe((data: DoctorSession[]) => {
+          this.doctorSessionList = data;
+          this.doctor = this.doctorSessionList[0].fkDoctor;
+        }, (e) => {
+          this.doctorSessionList = [];
+        }
+      );
+
   }
+
+  ngOnInit(): void {
+  }
+
 
 }
