@@ -12,6 +12,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import { ConfirmBookingComponent } from './confirm-booking/confirm-booking.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ConfirmBookingComponent } from './confirm-booking/confirm-booking.compo
     CreateBookingComponent,
     HomeComponent,
     FilterPipe,
-    ConfirmBookingComponent
+    ConfirmBookingComponent,
+    ContactFormComponent
   ],
   imports: [
     BrowserModule,
