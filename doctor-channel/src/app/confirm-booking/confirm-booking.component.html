@@ -112,7 +112,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-phone text-danger"></i></span>
-                <input id="book-phone" class="form-control" placeholder="Phone - Required" maxlength="10" name="phone"
+                <input id="book-phone" [(ngModel)]="booking.fkCustomer.mobile" class="form-control" placeholder="Phone - Required" maxlength="10" name="phone"
                        type="text" value="">
               </div>
 
@@ -125,7 +125,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-certificate text-warning"></i></span>
-                <input id="book-nic" class="form-control" placeholder="NIC  - Required" name="nic" type="text" value="">
+                <input id="book-nic" [(ngModel)]="booking.fkCustomer.nic" class="form-control" placeholder="NIC  - Required" name="nic" type="text" value="">
               </div>
 
               <span class="help-block" id="nic-validation"></span>
@@ -137,7 +137,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe text-warning"></i></span>
-                <input id="book-passport" class="form-control" placeholder="Passport - Required if no NIC"
+                <input id="book-passport" [(ngModel)]="booking.fkCustomer.mobile" class="form-control" placeholder="Passport - Required if no NIC"
                        name="passport"
                        type="text" value="">
               </div>
@@ -151,7 +151,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                <input id="book-email" class="form-control" placeholder="E-Mail - Optional" name="email" type="text"
+                <input id="book-email" [(ngModel)]="booking.fkCustomer.email" class="form-control" placeholder="E-Mail - Optional" name="email" type="text"
                        value="">
               </div>
 
