@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {DoctorChannelingService} from '../service/doctor-channeling.service';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute} from '@angular/router';
+import {Booking} from '../dto/booking';
+import {DoctorSession} from '../dto/doctor-session';
 
 @Component({
   selector: 'app-confirm-booking',
@@ -9,15 +11,16 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class ConfirmBookingComponent implements OnInit {
 
-  sessionDetails = {};
+  booking: Booking;
 
   constructor(private doctorChannelingService: DoctorChannelingService,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.doctorChannelingService.findSessionDetails(this.route.snapshot.params.id)
-      .subscribe(res => {
-        this.sessionDetails = res;
+      .subscribe((res: DoctorSession) => {
+        this.booking.fkSession = res;
+        this.booking.fkDoctor = res.fkDoctor;
       });
   }
 

@@ -36,4 +36,8 @@ export class DoctorChannelingService {
   findSessionDetails(id: number) {
     return this.http.get(AppSettings.API_ENDPOINT + '/api/doctor-channeling/find-session-details/' + id);
   }
+
+  saveBooking(data) {
+    return this.http.post(AppSettings.API_ENDPOINT + '/api/doctor-channeling/save-booking' , data);
+  }
 }

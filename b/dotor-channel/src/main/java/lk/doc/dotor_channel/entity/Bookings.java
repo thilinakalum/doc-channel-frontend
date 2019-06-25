@@ -30,6 +30,9 @@ public class Bookings implements Serializable {
     private Integer fkDoctor;
     @Column(name = "fk_session")
     private Integer fkSession;
+    @Column(name = "fk_customer")
+    private Integer fkCustomer;
+    private Integer bookingNo;
 
     public Bookings() {
     }
@@ -61,5 +64,20 @@ public class Bookings implements Serializable {
     public void setFkSession(Integer fkSession) {
         this.fkSession = fkSession;
     }
-    
+
+    public Integer getFkCustomer() {
+        return fkCustomer;
+    }
+
+    public void setFkCustomer(Integer fkCustomer) {
+        this.fkCustomer = fkCustomer;
+    }
+
+    public Integer getBookingNo() {
+        return bookingNo;
+    }
+
+    public void setBookingNo(Integer bookingNo) {
+        this.bookingNo = bookingNo;
+    }
 }

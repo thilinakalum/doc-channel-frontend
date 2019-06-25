@@ -32,4 +32,8 @@ IF("" = "", doctor_session.DATE >= "2019-06-23", doctor_session.DATE = "2019-06-
             "(:date = \"\" OR doctor_session.DATE >= :date)",nativeQuery = true)
     public List<DoctorSession> findByDoctorAndDate(@Param("doctor") Integer doctor,@Param("date") String  date);
 
+//    @Query(value = "SELECT * FROM doctor_session WHERE id = :id",nativeQuery = true)
+//    public DoctorSession findDoctorSessionById(@Param("id") Integer id);
+    public DoctorSession findDoctorSessionById(Integer id);
+
 }

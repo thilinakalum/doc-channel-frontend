@@ -1,5 +1,6 @@
 package lk.doc.dotor_channel.controller;
 
+import lk.doc.dotor_channel.entity.Bookings;
 import lk.doc.dotor_channel.entity.Doctor;
 import lk.doc.dotor_channel.entity.DoctorCategory;
 import lk.doc.dotor_channel.entity.DoctorSession;
@@ -30,8 +31,13 @@ public class DoctorChannelingController {
     }
 
     @GetMapping("/find-session-details/{id}")
-    public List<DoctorCategory> findSessionDetails(@PathVariable("id") Integer id)  {
+    public DoctorSession findSessionDetails(@PathVariable("id") Integer id)  {
         return doctorChannelingService.findSessionDetails(id);
+    }
+
+    @GetMapping("/save-booking")
+    public Bookings findSessionDetails(@RequestBody Bookings bookings)  {
+        return doctorChannelingService.saveBooking(bookings);
     }
 
     @GetMapping(value = {
