@@ -13,6 +13,7 @@ import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
 import {HttpClientModule} from '@angular/common/http';
 import { ConfirmBookingComponent } from './confirm-booking/confirm-booking.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ContactFormComponent } from './contact-form/contact-form.component';
     HomeComponent,
     FilterPipe,
     ConfirmBookingComponent,
-    ContactFormComponent
+    ContactFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
