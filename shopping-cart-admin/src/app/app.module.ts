@@ -21,7 +21,7 @@ import {AccountService} from './view/security/services/account.service';
 import {AuthService} from './view/security/services/auth.service';
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";;
 import {FilterPipe} from "./pipe/filter-pipe";
-import { MProductComponent } from './view/master/m-doctor/m-product.component';
+import { MDoctorComponent } from './view/master/m-doctor/m-doctor.component';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { CommonService } from './view/master/m-doctor/service/common.service';
 
@@ -35,7 +35,7 @@ import { CommonService } from './view/master/m-doctor/service/common.service';
     SafePipe,
     FilterPipe,
     LoginComponent,
-    MProductComponent,
+    MDoctorComponent
   ],
   imports: [
     BrowserModule,
