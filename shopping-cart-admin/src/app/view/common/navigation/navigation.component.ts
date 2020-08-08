@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {Router, RoutesRecognized} from '@angular/router';
 import { MProductComponent } from '../../master/m-doctor/m-product.component';
+import {AppointmentComponent} from '../../master/appointment/appointment.component';
 
 export enum NavigationMenuTypes {
   MASTER,
@@ -37,6 +38,9 @@ export class NavigationComponent implements OnInit {
       if (event instanceof RoutesRecognized) {
         switch (event.state.root.firstChild.component) {
           case MProductComponent:
+            this.setActiveMenu(NavigationMenuTypes.MASTER);
+            break;
+          case AppointmentComponent:
             this.setActiveMenu(NavigationMenuTypes.MASTER);
             break;
           default:

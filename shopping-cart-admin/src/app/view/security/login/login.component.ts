@@ -2,7 +2,7 @@ import {Component, OnInit, ViewEncapsulation} from '@angular/core';
 import {User} from '../model/model.user';
 import {AuthService} from '../services/auth.service';
 import {Router} from '@angular/router';
-import { NgxSpinnerService } from "ngx-spinner";
+import {NgxSpinnerService} from 'ngx-spinner';
 
 @Component({
   selector: 'app-login',
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   errorMessage: string;
 
   constructor(private authService: AuthService,
-    private spinner: NgxSpinnerService,
+              private spinner: NgxSpinnerService,
               private router: Router) {
   }
 
@@ -28,12 +28,12 @@ export class LoginComponent implements OnInit {
       .subscribe(data => {
           // login successful if there's a jwt token in the response
           // the returned user object is a principal object
-          let user = data.principal;
+          const user = data.principal;
           if (user) {
             // store user details  in local storage to keep user logged in between page refreshes
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
-          this.router.navigate(['/m-product']);
+          this.router.navigate(['/doctors']);
           this.spinner.hide();
         }, err => {
           this.spinner.hide();
