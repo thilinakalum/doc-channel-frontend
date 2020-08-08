@@ -36,7 +36,7 @@ public class DoctorSession implements Serializable {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
-  private Date date;
+  private Date sessionDate;
   private Time startTime;
   private Time endTime;
   private int maxEpointments;

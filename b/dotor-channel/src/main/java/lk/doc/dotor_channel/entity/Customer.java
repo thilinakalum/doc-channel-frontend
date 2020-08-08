@@ -6,6 +6,7 @@
 package lk.doc.dotor_channel.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,4 +39,5 @@ public class Customer implements Serializable {
   private String mobile;
   private String nic;
   private String email;
+  private Date createdDateTime;
 }

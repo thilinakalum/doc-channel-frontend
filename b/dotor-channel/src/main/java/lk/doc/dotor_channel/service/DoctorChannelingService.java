@@ -21,42 +21,42 @@ import lk.doc.dotor_channel.repository.DoctorSessionRepository;
 @Transactional
 public class DoctorChannelingService {
 
-  @Autowired
-  private DoctorRepository doctorRepository;
+    @Autowired
+    private DoctorRepository doctorRepository;
 
-  @Autowired
-  private DoctorCategoryRepository doctorCategoryRepository;
+    @Autowired
+    private DoctorCategoryRepository doctorCategoryRepository;
 
-  @Autowired
-  private DoctorSessionRepository doctorSessionRepository;
+    @Autowired
+    private DoctorSessionRepository doctorSessionRepository;
 
-  @Autowired
-  private BookingRepository bookingRepository;
+    @Autowired
+    private BookingRepository bookingRepository;
 
-  @Autowired
-  private CustomerRepository customerRepository;
+    @Autowired
+    private CustomerRepository customerRepository;
 
-  public List<Doctor> findAllDoctolers() {
-    return doctorRepository.findAll();
-  }
+    public List<Doctor> findAllDoctolers() {
+        return doctorRepository.findAll();
+    }
 
-  public List<DoctorCategory> findAllDoctorCategory() {
-    return doctorCategoryRepository.findAll();
-  }
+    public List<DoctorCategory> findAllDoctorCategory() {
+        return doctorCategoryRepository.findAll();
+    }
 
-  public List<DoctorSession> findByDoctorAndDate(Integer doctor, String date) {
-    return doctorSessionRepository.findByDoctorAndDate(doctor, date);
-  }
+    public List<DoctorSession> findByDoctorAndDate(Integer doctor, String date) {
+        return doctorSessionRepository.findByDoctorAndDate(doctor, date);
+    }
 
-  public DoctorSession findSessionDetails(Integer id) {
-    DoctorSession doctorSessionById = doctorSessionRepository.findDoctorSessionById(id);
-    return doctorSessionById;
-  }
+    public DoctorSession findSessionDetails(Integer id) {
+        DoctorSession doctorSessionById = doctorSessionRepository.findDoctorSessionById(id);
+        return doctorSessionById;
+    }
 
-  public Booking saveBooking(Booking booking) {
-    Customer saveCustomer = customerRepository.save(booking.getFkCustomer());
-    booking.setFkCustomer(saveCustomer);
-    return bookingRepository.save(booking);
-  }
+    public Booking saveBooking(Booking booking) {
+        Customer saveCustomer = customerRepository.save(booking.getFkCustomer());
+        booking.setFkCustomer(saveCustomer);
+        return bookingRepository.save(booking);
+    }
 
 }
