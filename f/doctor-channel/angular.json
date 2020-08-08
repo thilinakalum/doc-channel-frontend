@@ -114,6 +114,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "doctor-channel"
+    }
+  },
+  "defaultProject": "doctor-channel",
+  "cli": {
+    "analytics": "c53e8dcf-15bf-47e7-8d9f-cb38b428f2c5"
+  }
 }

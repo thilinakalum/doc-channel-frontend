@@ -1,10 +1,11 @@
 package lk.doc.dotor_channel.repository;
 
-import lk.doc.dotor_channel.entity.Booking;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import lk.doc.dotor_channel.entity.Customer;
+
 @Repository
-public interface BookingRepository extends JpaRepository<Booking, Integer> {
+public interface CustomerRepository extends JpaRepository<Customer, Integer> {
 
 }

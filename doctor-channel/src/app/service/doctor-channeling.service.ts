@@ -1,6 +1,6 @@
-import {Injectable} from '@angular/core';
-import {AppSettings} from '../settings/app-settings';
-import {HttpClient} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { AppSettings } from '../settings/app-settings';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -38,6 +38,6 @@ export class DoctorChannelingService {
   }
 
   saveBooking(data) {
-    return this.http.post(AppSettings.API_ENDPOINT + '/api/doctor-channeling/save-booking' , data);
+    return this.http.post(AppSettings.API_ENDPOINT + '/api/doctor-channeling/save-booking', data);
   }
 }

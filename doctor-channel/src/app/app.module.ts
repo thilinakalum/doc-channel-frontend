@@ -1,20 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CreateBookingComponent } from './create-booking/create-booking.component';
 import { HomeComponent } from './home/home.component';
-import {FilterPipe} from './pipe/filter-pipe';
-import {DoctorChannelingService} from './service/doctor-channeling.service';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {NgbTypeaheadModule} from '@ng-bootstrap/ng-bootstrap';
-import {HttpClientModule} from '@angular/common/http';
+import { FilterPipe } from './pipe/filter-pipe';
+import { DoctorChannelingService } from './service/doctor-channeling.service';
+import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgbTypeaheadModule } from '@ng-bootstrap/ng-bootstrap';
+import { HttpClientModule } from '@angular/common/http';
 import { ConfirmBookingComponent } from './confirm-booking/confirm-booking.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { LoginComponent } from './login/login.component';
-
+import { NgxSpinnerModule } from "ngx-spinner";
+import { SnotifyModule, SnotifyService, ToastDefaults } from 'ng-snotify';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,9 +32,18 @@ import { LoginComponent } from './login/login.component';
     ReactiveFormsModule,
     AppRoutingModule,
     NgbTypeaheadModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSpinnerModule,
+    SnotifyModule
   ],
-  providers: [DoctorChannelingService],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
+  providers: [
+    DoctorChannelingService, {
+    provide: 'SnotifyToastConfig',
+    useValue: ToastDefaults
+  },
+    SnotifyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

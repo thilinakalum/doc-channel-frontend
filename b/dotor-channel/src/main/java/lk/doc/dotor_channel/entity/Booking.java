@@ -8,9 +8,12 @@ package lk.doc.dotor_channel.entity;
 import java.io.Serializable;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 import org.hibernate.annotations.DynamicUpdate;
 
@@ -26,16 +29,19 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @DynamicUpdate
-public class Customer implements Serializable {
+public class Booking implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Integer id;
-  private String title;
-  private String fname;
-  private String lname;
-  private Integer age;
-  private String mobile;
-  private String nic;
-  private String email;
+  private Integer bookingNo;
+  @ManyToOne(fetch = FetchType.EAGER, optional = false)
+  @JoinColumn(name = "fkDoctor", referencedColumnName = "id")
+  private Doctor fkDoctor;
+  @ManyToOne(fetch = FetchType.EAGER, optional = false)
+  @JoinColumn(name = "fkSession", referencedColumnName = "id")
+  private DoctorSession fkSession;
+  @ManyToOne(fetch = FetchType.EAGER, optional = false)
+  @JoinColumn(name = "fkCustomer", referencedColumnName = "id")
+  private Customer fkCustomer;
 }

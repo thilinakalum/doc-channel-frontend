@@ -1,5 +1,6 @@
 import {Doctor} from './doctor';
-
+import { Injectable } from '@angular/core';
+@Injectable()
 export class DoctorSession {
   id: number;
   date: Date;
@@ -7,5 +8,5 @@ export class DoctorSession {
   endTime: string;
   maxEpointments: number;
   availaility: number;
-  fkDoctor: Doctor;
+  fkDoctor: Doctor = new Doctor();;
 }
