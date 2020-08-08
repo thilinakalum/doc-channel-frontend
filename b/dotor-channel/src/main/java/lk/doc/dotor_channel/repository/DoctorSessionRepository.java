@@ -11,15 +11,17 @@ import java.util.List;
 @Repository
 public interface DoctorSessionRepository extends JpaRepository<DoctorSession, Integer> {
 
-    @Query(value = "SELECT \n" +
-            " * \n" +
-            "FROM \n" +
-            " doctor_session \n" +
-            "WHERE\n" +
-            "(:doctor IS NULL OR doctor_session.fk_doctor = :doctor)\n" +
-            "AND\n" +
-            "(:date = \"\" OR doctor_session.session_date >= :date)", nativeQuery = true)
-    List<DoctorSession> findByDoctorAndDate(@Param("doctor") Integer doctor, @Param("date") String date);
+    @Query(value = "SELECT * FROM doctor_session WHERE DATE(doctor_session.session_date) >= DATE(NOW())",nativeQuery = true)
+    List<DoctorSession> findDoctorSessions();
+
+    @Query(value = "SELECT * FROM doctor_session WHERE DATE(doctor_session.session_date) = :sessionDate",nativeQuery = true)
+    public List<DoctorSession> findByDate(@Param("sessionDate") String  sessionDate);
+//
+    @Query(value = "SELECT * FROM doctor_session WHERE doctor_session.fk_doctor = :doctor AND DATE(doctor_session.session_date) >= DATE(NOW())",nativeQuery = true)
+    public List<DoctorSession> findByDoctor(@Param("doctor") Integer  doctor);
+
+    @Query(value = "SELECT * FROM doctor_session WHERE (doctor_session.fk_doctor = :doctor) AND (DATE(doctor_session.session_date) = :sessionDate)",nativeQuery = true)
+    public List<DoctorSession> findByDoctorAndDate(@Param("doctor") Integer doctor,@Param("sessionDate") String  sessionDate);
 
     DoctorSession findDoctorSessionById(Integer id);
 
