@@ -36,26 +36,16 @@ public class DoctorChannelingController {
     return doctorChannelingService.findAllDoctorCategory();
   }
 
-  @GetMapping("/find-session-details/{id}")
-  public DoctorSession findSessionDetails(@PathVariable("id") Integer id) {
-    return doctorChannelingService.findSessionDetails(id);
-  }
-
-  @PostMapping("/save-booking")
-  public Booking findSessionDetails(@RequestBody Booking booking) {
-    return doctorChannelingService.saveBooking(booking);
-  }
-
   @GetMapping(value = {
-      "/find-doctor-session-by-doctor-and-date",
-      "/find-doctor-session-by-doctor-and-date/{doctor}",
-      "/find-doctor-session-by-doctor-and-date/{doctor}/{date}"
+          "/find-doctor-session-by-doctor-and-date",
+          "/find-doctor-session-by-doctor-and-date/{date}",
+          "/find-doctor-session-by-doctor-and-date/{doctor}",
+          "/find-doctor-session-by-doctor-and-date/{doctor}/{date}"
   })
   public List<DoctorSession> findByDoctorAndDate(@PathVariable Optional<Integer> doctor,
-      @PathVariable Optional<String> date) {
-    System.out.println("doctor - " + doctor);
-    System.out.println("date - " + date);
-    String paramDate = "";
+                                                 @PathVariable Optional<String> date) {
+
+    String paramDate = null;
     Integer paramDoctor = null;
 
     if (date.isPresent()) {
@@ -67,6 +57,16 @@ public class DoctorChannelingController {
     }
 
     return doctorChannelingService.findByDoctorAndDate(paramDoctor, paramDate);
+  }
+
+  @GetMapping("/find-session-details/{id}")
+  public DoctorSession findSessionDetails(@PathVariable("id") Integer id) {
+    return doctorChannelingService.findSessionDetails(id);
+  }
+
+  @PostMapping("/save-booking")
+  public Booking findSessionDetails(@RequestBody Booking booking) {
+    return doctorChannelingService.saveBooking(booking);
   }
 
 }

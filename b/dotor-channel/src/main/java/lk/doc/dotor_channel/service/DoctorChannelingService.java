@@ -45,7 +45,16 @@ public class DoctorChannelingService {
   }
 
   public List<DoctorSession> findByDoctorAndDate(Integer doctor, String date) {
-    return doctorSessionRepository.findByDoctorAndDate(doctor, date);
+    if (date != null && doctor != null) {
+      return doctorSessionRepository.findByDoctorAndDate(doctor, date);
+    }
+    if (date != null) {
+      return doctorSessionRepository.findByDate(date);
+    }
+    if (doctor != null) {
+      return doctorSessionRepository.findByDoctor(doctor);
+    }
+    return doctorSessionRepository.findDoctorSessions();
   }
 
   public DoctorSession findSessionDetails(Integer id) {
