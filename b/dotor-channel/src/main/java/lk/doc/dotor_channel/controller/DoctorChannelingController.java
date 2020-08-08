@@ -35,7 +35,6 @@ public class DoctorChannelingController {
   @GetMapping(
       value = {
         "/find-doctor-session-by-doctor-and-date",
-        "/find-doctor-session-by-doctor-and-date/{date}",
         "/find-doctor-session-by-doctor-and-date/{doctor}",
         "/find-doctor-session-by-doctor-and-date/{doctor}/{date}"
       })
