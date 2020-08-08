@@ -6,6 +6,7 @@
 package lk.doc.dotor_channel.entity;
 
 import java.io.Serializable;
+import java.sql.Date;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -44,4 +45,5 @@ public class Booking implements Serializable {
   @ManyToOne(fetch = FetchType.EAGER, optional = false)
   @JoinColumn(name = "fkCustomer", referencedColumnName = "id")
   private Customer fkCustomer;
+  private Date createdDateTime;
 }

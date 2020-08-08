@@ -1,40 +1,26 @@
 package lk.doc.dotor_channel.service;
 
-import java.util.List;
-
+import lk.doc.dotor_channel.entity.*;
+import lk.doc.dotor_channel.repository.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import lk.doc.dotor_channel.entity.Booking;
-import lk.doc.dotor_channel.entity.Customer;
-import lk.doc.dotor_channel.entity.Doctor;
-import lk.doc.dotor_channel.entity.DoctorCategory;
-import lk.doc.dotor_channel.entity.DoctorSession;
-import lk.doc.dotor_channel.repository.BookingRepository;
-import lk.doc.dotor_channel.repository.CustomerRepository;
-import lk.doc.dotor_channel.repository.DoctorCategoryRepository;
-import lk.doc.dotor_channel.repository.DoctorRepository;
-import lk.doc.dotor_channel.repository.DoctorSessionRepository;
+import java.util.List;
 
 @Service
 @Transactional
 public class DoctorChannelingService {
 
-  @Autowired
-  private DoctorRepository doctorRepository;
+  @Autowired private DoctorRepository doctorRepository;
 
-  @Autowired
-  private DoctorCategoryRepository doctorCategoryRepository;
+  @Autowired private DoctorCategoryRepository doctorCategoryRepository;
 
-  @Autowired
-  private DoctorSessionRepository doctorSessionRepository;
+  @Autowired private DoctorSessionRepository doctorSessionRepository;
 
-  @Autowired
-  private BookingRepository bookingRepository;
+  @Autowired private BookingRepository bookingRepository;
 
-  @Autowired
-  private CustomerRepository customerRepository;
+  @Autowired private CustomerRepository customerRepository;
 
   public List<Doctor> findAllDoctolers() {
     return doctorRepository.findAll();
@@ -67,5 +53,4 @@ public class DoctorChannelingService {
     booking.setFkCustomer(saveCustomer);
     return bookingRepository.save(booking);
   }
-
 }
