@@ -65,7 +65,7 @@ public class BookingService {
                     if (doctor != null) {
                         doctorId = doctor.getId();
                         Doctor doctor1 = doctorRepository.findDoctorById(doctorId);
-                        bookingDetailModel.setDoctorName("Dr." + doctor1.getName());
+                        bookingDetailModel.setDoctorName(doctor1.getName());
                     }
 
                     int doctorSessionId = 0;
@@ -112,7 +112,7 @@ public class BookingService {
                     bookingDetailModel.setBookingNumber(Integer.parseInt(String.valueOf(object[1])));
 
                     Doctor doctor1 = doctorRepository.findDoctorById(Integer.parseInt(String.valueOf(object[2])));
-                    bookingDetailModel.setDoctorName("Dr." + doctor1.getName());
+                    bookingDetailModel.setDoctorName(doctor1.getName());
 
                     DoctorSession doctorSession = doctorSessionRepository.findDoctorSessionById(Integer.parseInt(String.valueOf(object[3])));
                     Date sessionDate = doctorSession.getSessionDate();
