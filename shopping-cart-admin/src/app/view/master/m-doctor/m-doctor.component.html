@@ -17,7 +17,11 @@
                     <th style="width: 25%">Description</th>
                     <th style="width: 20%">Qualification</th>
                     <th style="width: 20%" class="text-right">Category</th>
-                    <th style="width: 10%">&nbsp;</th>
+                    <th style="width: 10%" class="text-right">   
+                      <button type="submit" class="btn btn-flat btn-success btn-xs"
+                      (click)="new()">NEW
+                    </button>
+                  </th>
                   </tr>
                 </thead>
                 <tbody>
@@ -54,12 +58,12 @@
       </div>
     </div>
     <ngx-smart-modal #advanceOrderDetail identifier="masterForm">
-      <div class="content" style="background-color: #ECF0F5;height: 100% !important;">
+      <div class="content">
         <div class="row">
           <div class="col-md-12">
             <div class="box box-success">
               <div class="box-body">
-                <form #inputForm3="ngForm">
+                <form #inputForm="ngForm">
                   <div class="form-group">
                     <label>Name</label>
                     <input name="doctor.name" class="form-control input-sm" type="text" [(ngModel)]="doctor.name"

@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
             // store user details  in local storage to keep user logged in between page refreshes
             localStorage.setItem('currentUser', JSON.stringify(user));
           }
-          this.router.navigate(['/doctors']);
+          this.router.navigate(['/m-doctor']);
           this.spinner.hide();
         }, err => {
           this.spinner.hide();
