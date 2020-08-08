@@ -53,7 +53,7 @@ public class DoctorChannelingController {
       paramDoctor = doctor.get();
     }
 
-    return doctorChannelingService.findByDoctorAndDate(paramDoctor, passingDate);
+    return doctorChannelingService.findByDoctorAndDate(paramDoctor, paramDate);
   }
 
   @GetMapping("/getAllAppointments")
