@@ -8,7 +8,6 @@ import lk.doc.dotor_channel.service.DoctorChannelingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.constraints.Null;
 import java.util.List;
 import java.util.Optional;
 
@@ -31,12 +30,12 @@ public class DoctorChannelingController {
     }
 
     @GetMapping("/find-session-details/{id}")
-    public DoctorSession findSessionDetails(@PathVariable("id") Integer id)  {
+    public DoctorSession findSessionDetails(@PathVariable("id") Integer id) {
         return doctorChannelingService.findSessionDetails(id);
     }
 
     @GetMapping("/save-booking")
-    public Bookings findSessionDetails(@RequestBody Bookings bookings)  {
+    public Bookings findSessionDetails(@RequestBody Bookings bookings) {
         return doctorChannelingService.saveBooking(bookings);
     }
 
@@ -46,8 +45,6 @@ public class DoctorChannelingController {
             "/find-doctor-session-by-doctor-and-date/{doctor}/{date}"
     })
     public List<DoctorSession> findByDoctorAndDate(@PathVariable Optional<Integer> doctor, @PathVariable Optional<String> date) {
-        System.out.println("doctor - " + doctor);
-        System.out.println("date - " + date);
         String paramDate = "";
         Integer paramDoctor = null;
 
@@ -55,12 +52,13 @@ public class DoctorChannelingController {
             paramDate = date.get();
         }
 
+        String passingDate = "\"" + paramDate + "\"";
 
         if (doctor.isPresent()) {
             paramDoctor = doctor.get();
         }
 
-        return doctorChannelingService.findByDoctorAndDate(paramDoctor, paramDate);
+        return doctorChannelingService.findByDoctorAndDate(paramDoctor, passingDate);
     }
 
 }

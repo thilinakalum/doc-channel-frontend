@@ -41,7 +41,13 @@ public class DoctorChannelingService {
     }
 
     public List<DoctorSession> findByDoctorAndDate(Integer doctor, String date) {
-        return doctorSessionRepository.findByDoctorAndDate(doctor, date);
+        List<DoctorSession> list = null;
+        try {
+            list = doctorSessionRepository.findByFkDoctorAndDate(doctor, date);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return list;
     }
 
     public DoctorSession findSessionDetails(Integer id) {

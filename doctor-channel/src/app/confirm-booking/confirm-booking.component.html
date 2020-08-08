@@ -1,7 +1,7 @@
 <div class="row justify-content-center">
   <div class="col-9">
     <section class="container-sessions">
-      <h3 class="ui-component-note">ELPITIYA MEDICARE -ELPITIYA ROAD</h3>
+      <h3 class="ui-component-note">We Care</h3>
       <div class="ui-profile">
         <div class="doctor-profile">
           <div class="doctor-photo"><img src="https://image.freepik.com/free-vector/doctor-character-background_1270-84.jpg"></div>
@@ -13,7 +13,7 @@
               <li class="doctor-title">
                 Cardiologist
               </li>
-              <li>Special Notes: <span class="text-danger">please  charge  normal charges  for Maldivian  patients as  per Dr.</span>
+              <li>Special Notes: <span class="text-danger">please  charge  normal charges  for Maldivian  patients as  per doctor's request.</span>
               </li>
             </ul>
           </div>
@@ -99,7 +99,7 @@
                   <option value="17">Hon.</option>
                 </select>
                 <span class="input-group-addon"></span>
-                <input id="book-name" class="form-control" placeholder="Name - Required" name="name" type="text"
+                <input id="book-name" [(ngModel)]="customer.name" class="form-control" placeholder="Name - Required" name="name" type="text"
                        value="">
               </div>
 
@@ -112,7 +112,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-phone text-danger"></i></span>
-                <input id="book-phone" [(ngModel)]="booking.fkCustomer.mobile" class="form-control" placeholder="Phone - Required" maxlength="10" name="phone"
+                <input id="book-phone" [(ngModel)]="customer.mobile" class="form-control" placeholder="Phone - Required" maxlength="10" name="phone"
                        type="text" value="">
               </div>
 
@@ -125,7 +125,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-certificate text-warning"></i></span>
-                <input id="book-nic" [(ngModel)]="booking.fkCustomer.nic" class="form-control" placeholder="NIC  - Required" name="nic" type="text" value="">
+                <input id="book-nic" [(ngModel)]="customer.nic" class="form-control" placeholder="NIC  - Required" name="nic" type="text" value="">
               </div>
 
               <span class="help-block" id="nic-validation"></span>
@@ -137,7 +137,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-globe text-warning"></i></span>
-                <input id="book-passport" [(ngModel)]="booking.fkCustomer.mobile" class="form-control" placeholder="Passport - Required if no NIC"
+                <input id="book-passport" [(ngModel)]="customer.passport" class="form-control" placeholder="Passport - Required if no NIC"
                        name="passport"
                        type="text" value="">
               </div>
@@ -151,7 +151,7 @@
             <div class="col-lg-8">
               <div class="input-group">
                 <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-                <input id="book-email" [(ngModel)]="booking.fkCustomer.email" class="form-control" placeholder="E-Mail - Optional" name="email" type="text"
+                <input id="book-email" [(ngModel)]="customer.email" class="form-control" placeholder="E-Mail - Optional" name="email" type="text"
                        value="">
               </div>
 

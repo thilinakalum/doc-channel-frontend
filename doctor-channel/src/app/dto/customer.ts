@@ -1,3 +1,6 @@
+import {Injectable} from '@angular/core';
+
+@Injectable()
 export class Customer {
   id: number;
   name: string;
@@ -5,5 +8,6 @@ export class Customer {
   mobile: string;
   nic: string;
   email: string;
+  passport: string;
 }
 

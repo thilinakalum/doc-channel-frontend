@@ -9,31 +9,18 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public interface DoctorSessionRepository extends JpaRepository<DoctorSession,Integer> {
-
-    /*
-    SELECT
- *
-FROM
- doctor_session
-WHERE
-doctor_session.fk_doctor = 1
-AND
-IF("" = "", doctor_session.DATE >= "2019-06-23", doctor_session.DATE = "2019-06-23")
-     */
+public interface DoctorSessionRepository extends JpaRepository<DoctorSession, Integer> {
 
     @Query(value = "SELECT \n" +
             " * \n" +
             "FROM \n" +
-            " doctor_session \n" +
-            "WHERE\n" +
+            "doctor_session \n" +
+            "WHERE \n" +
             "(:doctor IS NULL OR doctor_session.fk_doctor = :doctor)\n" +
-            "AND\n" +
-            "(:date = \"\" OR doctor_session.DATE >= :date)",nativeQuery = true)
-    public List<DoctorSession> findByDoctorAndDate(@Param("doctor") Integer doctor,@Param("date") String  date);
+            "AND \n" +
+            "(:sessionDate = \"\" OR doctor_session.date >= :sessionDate)", nativeQuery = true)
+    List<DoctorSession> findByFkDoctorAndDate(@Param("doctor") Integer doctor, @Param("sessionDate") String sessionDate);
 
-//    @Query(value = "SELECT * FROM doctor_session WHERE id = :id",nativeQuery = true)
-//    public DoctorSession findDoctorSessionById(@Param("id") Integer id);
-    public DoctorSession findDoctorSessionById(Integer id);
+    DoctorSession findDoctorSessionById(Integer id);
 
 }
