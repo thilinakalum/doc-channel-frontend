@@ -1,15 +1,20 @@
 <div class="row justify-content-center">
-  <div class="col-9">
+  <div class="col-md-8">
+    <div style="text-align: center; margin-top: 250px" *ngIf="lording">
+      <img src="../../assets/loader.gif" height="256" width="256"/>
+    </div>
 
-    <section class="container-doctors">
+    <section class="container-doctors" *ngIf="!lording">
       <h3 class="ui-component-note">We Care</h3>
-
       <div class="ui-profile">
         <div class="doctor-profile">
           <div class="doctor-photo"><img src="https://image.freepik.com/free-vector/doctor-character-background_1270-84.jpg"></div>
           <div class="doctor-quick-details">
             <ul>
-              <li class="doctor-name"><a href="#/">Dr.{{doctor.name}}</a>
+              <li class="doctor-name" *ngIf="doctor.id==null"><a href="#/">Doctor Not Available !</a>
+                <span class="doctor-qualifications"></span></li>
+              <li class="doctor-title">
+              <li class="doctor-name" *ngIf="doctor.id!=null"><a href="#/">Dr.{{doctor.name}}</a>
                 <span class="doctor-qualifications"></span></li>
               <li class="doctor-title">
                 {{doctor.description}}
@@ -36,11 +41,11 @@
             <div class="ui-profile-sessions ui-profile-sessions-list">
               <ul *ngFor="let doctorSession of doctorSessionList">
                 <li>
-                  <div class="ui-component ui-component-primary ui-component-sessions ui-component-channel" data-link="//frame.doc.lk/asiri/book/2133826">
-                    <div class="ui-component-content" data-link="//frame.doc.lk/asiri/book/2133826">
-                      <div class="session-quick-details">
+                  <div class="ui-component ui-component-primary ui-component-sessions ui-component-channel">
+                    <div class="ui-component-content">
+                      <div class="session-quick-details" style="width: 255px">
                         <ul>
-                          <li class="session-date">{{doctorSession.date}}</li>
+                          <li class="session-date">{{doctorSession.sessionDate}}</li>
                           <li class="session-time">{{doctorSession.startTime}} - {{doctorSession.endTime}}</li>
                         </ul>
                       </div>
@@ -55,7 +60,7 @@
                     </div>
                     <div class="ui-component-options">
                       <ul>
-                        <li>
+                        <li style="margin-left: 50px">
                           <a (click)="confirmbooking(doctorSession)" class="btn btn-dialog" >
                             <i class="fa fa-bookmark-o fa-fw"></i> Channel</a>
                         </li>

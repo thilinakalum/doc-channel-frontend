@@ -13,6 +13,7 @@ export class CreateBookingComponent implements OnInit {
 
   private doctorSessionList: DoctorSession [] = [];
   private doctor: Doctor;
+  public lording: boolean;
 
   constructor(private route: ActivatedRoute,
               private doctorChannelingService: DoctorChannelingService,
@@ -22,10 +23,12 @@ export class CreateBookingComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.lording = true;
     this.doctorChannelingService.findDoctorSessionByDoctorAnd(this.route.snapshot.params.doctor, this.route.snapshot.params.date)
       .subscribe((data: DoctorSession[]) => {
-          this.doctorSessionList = data;
-          this.doctor = this.doctorSessionList[0].fkDoctor;
+        this.lording = false;
+        this.doctorSessionList = data;
+        this.doctor = this.doctorSessionList[0].fkDoctor;
         }, (e) => {
           this.doctorSessionList = [];
         }

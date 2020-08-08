@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit {
   doctorList: Doctor[] = [];
   doctorCategoryList: DoctorCategory [] = [];
   searchDoctor: SearchDoctor;
+  public lording: boolean;
 
   constructor(private router: Router,
               private doctorChannelingService: DoctorChannelingService) {
@@ -27,6 +28,7 @@ export class HomeComponent implements OnInit {
   }
 
   formLoadFillData() {
+    this.lording = true;
     this.doctorList = [];
     this.doctorChannelingService.findAllDoctors()
       .subscribe((data: Doctor[]) => {
@@ -40,6 +42,7 @@ export class HomeComponent implements OnInit {
     this.doctorChannelingService.findAllDoctorCategorys()
       .subscribe((data: DoctorCategory[]) => {
           this.doctorCategoryList = data;
+          this.lording = false;
         }, (e) => {
           this.doctorCategoryList = [];
         }

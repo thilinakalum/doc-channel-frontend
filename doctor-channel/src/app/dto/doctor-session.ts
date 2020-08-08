@@ -3,10 +3,10 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class DoctorSession {
   id: number;
-  date: Date;
+  sessionDate: Date;
   startTime: string;
   endTime: string;
   maxEpointments: number;
   availaility: number;
-  fkDoctor: Doctor = new Doctor();;
+  fkDoctor: Doctor = new Doctor();
 }
