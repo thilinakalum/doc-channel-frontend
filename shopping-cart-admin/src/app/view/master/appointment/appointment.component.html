@@ -12,7 +12,7 @@
               <div class="form-group">
                 <label style="font-size: large;">Doctor :</label>
                 <select class="form-control" (change)="selectOption($event)" [ngModel]="selectedValue">
-                  <option *ngFor="let doctor of doctorList" [ngValue]="doctor.id">Dr.{{doctor.name}}</option>
+                  <option *ngFor="let doctor of doctorList" [ngValue]="doctor.id">{{doctor.name}}</option>
                 </select>
               </div>
             </div>
