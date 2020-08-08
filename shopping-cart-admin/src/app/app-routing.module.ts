@@ -3,11 +3,18 @@ import {CommonModule} from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import {UrlPermission} from './view/security/urlPermission/url.permission';
 import {LoginComponent} from './view/security/login/login.component';
-import { MProductComponent } from './view/master/m-doctor/m-product.component';
+import { MDoctorComponent } from './view/master/m-doctor/m-doctor.component';
+import {AppointmentComponent} from './view/master/appointment/appointment.component';
+
 const routes: Routes = [
   {
-    path: 'm-product',
-    component: MProductComponent,
+    path: 'm-doctor',
+    component: MDoctorComponent,
+    canActivate: [UrlPermission]
+  },
+  {
+    path: 'appointments',
+    component: AppointmentComponent,
     canActivate: [UrlPermission]
   },
   {

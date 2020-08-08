@@ -1,5 +1,5 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule , CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
+import {NgModule, CUSTOM_ELEMENTS_SCHEMA} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {ContainerComponent} from './view/common/container/container.component';
@@ -19,11 +19,12 @@ import {LoginComponent} from './view/security/login/login.component';
 import {UrlPermission} from './view/security/urlPermission/url.permission';
 import {AccountService} from './view/security/services/account.service';
 import {AuthService} from './view/security/services/auth.service';
-import {HashLocationStrategy, LocationStrategy} from "@angular/common";;
-import {FilterPipe} from "./pipe/filter-pipe";
-import { MProductComponent } from './view/master/m-doctor/m-product.component';
-import { NgxSpinnerModule } from "ngx-spinner";
-import { CommonService } from './view/master/m-doctor/service/common.service';
+import {HashLocationStrategy, LocationStrategy} from '@angular/common';
+import {FilterPipe} from './pipe/filter-pipe';
+import {MDoctorComponent} from './view/master/m-doctor/m-doctor.component';
+import {NgxSpinnerModule} from 'ngx-spinner';
+import {CommonService} from './view/master/m-doctor/service/common.service';
+import {AppointmentComponent} from './view/master/appointment/appointment.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { CommonService } from './view/master/m-doctor/service/common.service';
     SafePipe,
     FilterPipe,
     LoginComponent,
-    MProductComponent,
+    MDoctorComponent,
+    AppointmentComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +49,7 @@ import { CommonService } from './view/master/m-doctor/service/common.service';
     HttpClientModule,
     NgbModule.forRoot(),
     NgxSmartModalModule.forRoot(),
-    NgxSpinnerModule
+    NgxSpinnerModule,
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [

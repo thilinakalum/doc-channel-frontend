@@ -14,8 +14,16 @@
         <ul class="treeview-menu">
           <li [ngClass]="{'treeview': true, 'active': activeMenu == NavigationMenuTypes.MASTER}"
               (click)="setActiveMenu(NavigationMenuTypes.MASTER)">
-            <a routerLink="/m-product">
-              <span>PRODUCT</span>
+            <a routerLink="/m-doctor">
+              <span>DOCTOR</span>
+            </a>
+          </li>
+        </ul>
+        <ul class="treeview-menu">
+          <li [ngClass]="{'treeview': true, 'active': activeMenu == NavigationMenuTypes.MASTER}"
+              (click)="setActiveMenu(NavigationMenuTypes.MASTER)">
+            <a routerLink="/appointments">
+              <span>APPOINTMENTS</span>
             </a>
           </li>
         </ul>
