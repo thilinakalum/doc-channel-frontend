@@ -36,7 +36,7 @@
     "ng-snotify": "^4.3.0",
     "ngx-spinner": "^7.2.0",
     "ngx-pagination": "^3.0.3",
-    "ngx-papaparse": "^3.0.2",
+    "ngx-papaparse": "^6.0.2",
     "ngx-smart-modal": "^6.0.4",
     "oi.select": "^0.2.21",
     "rxjs": "^6.2.2",
